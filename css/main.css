@@ -43,7 +43,7 @@
 /* Template Backgrounds Start */
 /* ------------------------------------------------*/
 .media-image-1 {
-  background-image: url("https://dummyimage.com/960x1440/636363/ffffff");
+  background-image: url("../img/backgrounds/bg-products.jpeg");
 }
 
 .media-image-2 {
@@ -75,7 +75,7 @@
 }
 
 .menu-image-1 {
-  background-image: url("../img/backgrounds/bg-menu.jpeg");
+  background-image: url("../img/backgrounds/bg-services.jpeg");
 }
 
 .media-image-about {
@@ -83,7 +83,7 @@
 }
 
 .media-image-portfolio {
-  background-image: url("../img/backgrounds/bg-services.jpeg");
+  background-image: url("../img/backgrounds/bg-menu.jpeg");
 }
 
 .media-image-contact {
