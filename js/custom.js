@@ -186,7 +186,7 @@ $(function() {
   // --------------------------------------------- //
   $('.notify-form').ajaxChimp({
     callback: mailchimpCallback,
-    url: 'https://besaba.us10.list-manage.com/subscribe/post?u=e8d650c0df90e716c22ae4778&amp;id=54a7906900'
+    url: 'https://cymate.us21.list-manage.com/subscribe/post?u=f306cea42124e71f02ab63e31&amp;id=37210f11ec&amp;f_id=00955fe1f0'
   });
 
   function mailchimpCallback(resp) {
