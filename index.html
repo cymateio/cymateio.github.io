@@ -558,7 +558,7 @@
                           <img src="img/services/1.jpg" class="my-gallery__image" itemprop="thumbnail" alt="QA Automation Framework Development" />
                         </a>
                         <figcaption class="my-gallery__description block-rounded-l" itemprop="caption description">
-                          <h4>Customer Service AI</h4>
+                          <h4>Captivate and reatain your leads</h4>
                           <!-- <p>
                             Test automation can help reduce the cost and time of manual testing. However, designing and creating a testing framework from scratch is a 
                             complexed effort that requires a team of engineers and domain experts to work on. Our agency will handle everything and create a custom testing 
@@ -581,7 +581,7 @@
                           <img src="img/services/2.jpg" class="my-gallery__image" itemprop="thumbnail" alt="Image description" />
                         </a>
                         <figcaption class="my-gallery__description block-rounded-l" itemprop="caption description">
-                          <h4>Client Onboarding AI</h4>
+                          <h4>Solve 82% of customer support queries</h4>
                           <!-- <p>Engineering productivity refers to the efficiency with which engineers are able to design, develop, and implement systems, products, or processes. 
                             Work with us to improve your engineering productivity by creating and using new tools, technologies, and processes, as well as optimizing the way engineers work.
                           </p> -->
@@ -602,7 +602,7 @@
                           <img src="img/services/3.jpg" class="my-gallery__image" itemprop="thumbnail" alt="Image description" />
                         </a>
                         <figcaption class="my-gallery__description block-rounded-l" itemprop="caption description">
-                          <h4>Staff Training AI</h4>
+                          <h4>Increase your business revenue</h4>
                           <!-- <p>Test design is the process of creating a detailed plan for testing a product or system. It involves identifying the test objectives, specifying the test inputs, 
                             determining the expected results, and creating the test cases that will be used to verify that the product or system functions as intended. A good test design is 
                             one that is thorough, efficient, and effective at identifying defects and ensuring that a product or system meets its requirements and specifications
@@ -624,7 +624,7 @@
                           <img src="img/services/4.jpg" class="my-gallery__image" itemprop="thumbnail" alt="Image description" />
                         </a>
                         <figcaption class="my-gallery__description block-rounded-l" itemprop="caption description">
-                          <h4>Data Analytic / Insight AI</h4>
+                          <h4>Automate repetitive tasks</h4>
                           <!-- <p> Not sure how to start testing? Don’t know what test coverage your should have? Work with us to ensure your product is shipped at the highest quality that it can be.
                           </p> -->
                           
@@ -1000,8 +1000,22 @@
     <script src="js/gallery-init.js"></script>
     <script src="js/custom.js"></script>
 
-    <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
-    <script src="https://mediafiles.botpress.cloud/8611c2a1-4be1-4f65-a7f5-ee22b0fc4d61/webchat/config.js" defer></script>
+    <!-- <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/8611c2a1-4be1-4f65-a7f5-ee22b0fc4d61/webchat/config.js" defer></script> -->
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '64d42ea3d58c4200071a5203' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production'
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+    
     <!-- Load Scripts End -->
 
   </body>
