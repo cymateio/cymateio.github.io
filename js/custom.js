@@ -1,478 +1,630 @@
-// ------------------------------------------------
-// Project Name: Marvio - Coming Soon & Portfolio Template
-// Project Description: Marvio - awesome coming soon and portfolio template to kick-start your project
-// Tags: mix_design, coming soon, under construction, template, landing page, portfolio, one page, responsive, html5, css3, creative, clean, agency, personal page
-// Version: 1.0.1
-// Build Date: May 2022
-// Last Update: October 2022
-// This product is available exclusively on Themeforest
-// Author: mix_design
-// Author URI: https://themeforest.net/user/mix_design
-// File name: custom.js
-// ------------------------------------------------
+// JavaScript Document
 
-// ------------------------------------------------
-// Table of Contents
-// ------------------------------------------------
-//
-//  1. Loader
-//  2. Swiper Slider
-//  3. Typed.js Plugin Settings
-//  4. Skillbars
-//  5. Magnific Popup Video
-//  6. KBW-Countdown
-//  7. Vegas Kenburns
-//  8. Mailchimp Notify Form
-//  9. Contact Form
-//
-// ------------------------------------------------
-// Table of Contents End
-// ------------------------------------------------
 
-$(window).on("load", function() {
+	$(window).on('load', function() {
+	
+		"use strict";
 
-  "use strict";
-
-  // --------------------------------------------- //
-  // Loader Start
-  // --------------------------------------------- //
-  $(".loader__circle").addClass('fade');
-
-  setTimeout(function(){
-    $(".loader").addClass('loaded');
-    $("#main").addClass('animate-in');
-    $("#header").addClass('animate-in');
-  }, 300);
-
-  setTimeout(function(){
-
-    // --------------------------------------------- //
-    // Swiper Slider Main Screen Start
-    // --------------------------------------------- //
-    var mainSlider      = $('.swiper');
-
-    if (mainSlider.length) {
-      var swiper = new Swiper('.swiper', {
-        preventClicks: false,
-        preventClicksPropagation: false,
-        grabCursor: true,
-        effect: "creative",
-        creativeEffect: {
-          prev: {
-            translate: ["-20%", 0, -1],
-          },
-          next: {
-            translate: ["100%", 0, 0],
-          },
-        },
-        parallax: true,
-        speed: 1300,
-        pagination: {
-          el: ".swiper-pagination",
-          type: "fraction",
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      });
-    };
-    // --------------------------------------------- //
-    // Swiper Slider Main Screen End
-    // --------------------------------------------- //
-
-  }, 800);
-  // --------------------------------------------- //
-  // Loader End
-  // --------------------------------------------- //
-
-  // --------------------------------------------- //
-  // Typed.js Plugin Settings Start
-  // --------------------------------------------- //
-  var animatedHeadline = $(".animated-headline");
-  if(animatedHeadline.length){
-    var typed = new Typed('#typed', {
-      stringsElement: '#typed-strings',
-      loop: true,
-      typeSpeed: 60,
-      backSpeed: 30,
-      backDelay: 2500
-    });
-  }
-  // --------------------------------------------- //
-  // Typed.js Plugin Settings End
-  // --------------------------------------------- //
-
-});
-
-$(function() {
-
-  "use strict";
-
-  // --------------------------------------------- //
-  // Skillbars Settings Start
-  // --------------------------------------------- //
-  $('.skillbar').skillBars({
-    from: 0,
-    speed: 4000,
-    interval: 100,
-  });
-  // --------------------------------------------- //
-  // Skillbars Settings End
-  // --------------------------------------------- //
-
-  // --------------------------------------------- //
-  // Magnific Popup Video Start
-  // --------------------------------------------- //
-  $('#inner-video-trigger').magnificPopup({
-		type: 'iframe',
-		mainClass: 'mfp-fade',
-		removalDelay: 160,
-		preloader: false,
-    fixedContentPos: false,
-    callbacks: {
-      beforeOpen: function() { $('body').addClass('overflow-hidden'); },
-      close: function() { $('body').removeClass('overflow-hidden'); }
-    }
+						
+		/*----------------------------------------------------*/
+		/*	Preloader
+		/*----------------------------------------------------*/
+		
+		var preloader = $('#loading'),
+			loader = preloader.find('#loading-center-absolute');
+			loader.fadeOut();
+			preloader.delay(400).fadeOut('slow');
+				
 	});
 
-  $('#showreel-trigger').magnificPopup({
-		type: 'iframe',
-		mainClass: 'mfp-fade',
-		removalDelay: 160,
-		preloader: false,
-    fixedContentPos: false,
-    callbacks: {
-      beforeOpen: function() { $('body').addClass('overflow-hidden'); },
-      close: function() { $('body').removeClass('overflow-hidden'); }
-    }
+
+	$(window).on('scroll', function() {
+		
+		"use strict";
+
+								
+		/*----------------------------------------------------*/
+		/*	Navigtion Menu Scroll
+		/*----------------------------------------------------*/	
+		
+		var b = $(window).scrollTop();
+		
+		if( b > 80 ){		
+			$(".wsmainfull").addClass("scroll");
+		} else {
+			$(".wsmainfull").removeClass("scroll");
+		}				
+
 	});
-  // --------------------------------------------- //
-  // Magnific Popup Video End
-  // --------------------------------------------- //
 
-  // --------------------------------------------- //
-  // KBW-Countdown Start
-  // --------------------------------------------- //
-  $('#countdown').countdown({until: $.countdown.UTCDate(+10, 2023, 2, 12), format: 'D'});
-  // --------------------------------------------- //
-  // KBW-Countdown End
-  // --------------------------------------------- //
 
-  // --------------------------------------------- //
-  // Vegas Kenburns Start
-  // --------------------------------------------- //
-  var bgndKenburns = $('#bgndKenburns');
-  if(bgndKenburns.length){
-    bgndKenburns.vegas({
-      timer: false,
-      delay: 8000,
-      transition: 'fade2',
-      transitionDuration: 2000,
-      slides: [
-        { src: "https://dummyimage.com/960x1440/636363/ffffff" },
-        { src: "https://dummyimage.com/960x1440/636363/ffffff" },
-        { src: "https://dummyimage.com/960x1440/636363/ffffff" }
-      ],
-      animation: [ 'kenburnsUp', 'kenburnsDown', 'kenburnsLeft', 'kenburnsRight' ]
-    });
-  }
-  // --------------------------------------------- //
-  // Vegas Kenburns End
-  // --------------------------------------------- //
+	$(document).ready(function() {
+			
+		"use strict";
 
-  // --------------------------------------------- //
-  // Mailchimp Notify Form Start
-  // --------------------------------------------- //
-  $('.notify-form').ajaxChimp({
-    callback: mailchimpCallback,
-    url: 'https://cymate.us21.list-manage.com/subscribe/post?u=f306cea42124e71f02ab63e31&amp;id=37210f11ec&amp;f_id=00955fe1f0'
-  });
 
-  function mailchimpCallback(resp) {
-    if(resp.result === 'success') {
-      $('.notify').find('.form').addClass('is-hidden');
-      $('.notify').find('.subscription-ok').addClass('is-visible');
-      setTimeout(function() {
-        // Done Functions
-        $('.notify').find('.subscription-ok').removeClass('is-visible');
-        $('.notify').find('.form').delay(300).removeClass('is-hidden');
-        $('.notify-form').trigger("reset");
-      }, 5000);
-    } else if(resp.result === 'error') {
-      $('.notify').find('.form').addClass('is-hidden');
-      $('.notify').find('.subscription-error').addClass('is-visible');
-      setTimeout(function() {
-        // Done Functions
-        $('.notify').find('.subscription-error').removeClass('is-visible');
-        $('.notify').find('.form').delay(300).removeClass('is-hidden');
-        $('.notify-form').trigger("reset");
-      }, 5000);
-    }
-  };
-  // --------------------------------------------- //
-  // Mailchimp Notify Form End
-  // --------------------------------------------- //
+		new WOW().init();
 
-  // --------------------------------------------- //
-  // Contact Form Start
-  // --------------------------------------------- //
-  $("#contact-form").submit(function() { //Change
-		var th = $(this);
-		$.ajax({
-			type: "POST",
-			url: "mail.php", //Change
-			data: th.serialize()
-		}).done(function() {
-      $('#contact').find('.form').addClass('is-hidden');
-      $('#contact').find('.reply-group').addClass('is-visible');
-			setTimeout(function() {
-				// Done Functions
-        $('#contact').find('.reply-group').removeClass('is-visible');
-        $('#contact').find('.form').delay(300).removeClass('is-hidden');
-				th.trigger("reset");
-			}, 5000);
+
+		/*----------------------------------------------------*/
+		/*	Mobile Menu Toggle
+		/*----------------------------------------------------*/
+
+		if ( $(window).outerWidth() < 992 ) {
+			$('.wsmenu-list li.nl-simple, .wsmegamenu li, .sub-menu li').on('click', function() {				
+				 $('body').removeClass("wsactive");	
+				 $('.sub-menu').slideUp('slow');
+     			 $('.wsmegamenu').slideUp('slow');	
+     			 $('.wsmenu-click').removeClass("ws-activearrow");
+        		 $('.wsmenu-click02 > i').removeClass("wsmenu-rotate");
+			});
+		}
+
+		if ( $(window).outerWidth() < 992 ) {
+			$('.wsanimated-arrow').on('click', function() {				
+				 $('.sub-menu').slideUp('slow');
+     			 $('.wsmegamenu').slideUp('slow');	
+     			 $('.wsmenu-click').removeClass("ws-activearrow");
+        		 $('.wsmenu-click02 > i').removeClass("wsmenu-rotate");
+			});
+		}
+
+
+		/*----------------------------------------------------*/
+		/*	ScrollUp
+		/*----------------------------------------------------*/
+		
+		$.scrollUp = function (options) {
+
+			// Defaults
+			var defaults = {
+				scrollName: 'scrollUp', // Element ID
+				topDistance: 600, // Distance from top before showing element (px)
+				topSpeed: 800, // Speed back to top (ms)
+				animation: 'fade', // Fade, slide, none
+				animationInSpeed: 200, // Animation in speed (ms)
+				animationOutSpeed: 200, // Animation out speed (ms)
+				scrollText: '', // Text for element
+				scrollImg: false, // Set true to use image
+				activeOverlay: false // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+			};
+
+			var o = $.extend({}, defaults, options),
+				scrollId = '#' + o.scrollName;
+
+			// Create element
+			// $('<a/>', {
+			// 	id: o.scrollName,
+			// 	href: '#top',
+			// 	title: o.scrollText
+			// }).appendTo('body');
+			
+			// If not using an image display text
+			if (!o.scrollImg) {
+				$(scrollId).text(o.scrollText);
+			}
+
+			// Minium CSS to make the magic happen
+			$(scrollId).css({'display':'none','position': 'fixed','z-index': '99999'});
+
+			// Active point overlay
+			if (o.activeOverlay) {
+				$("body").append("<div id='"+ o.scrollName +"-active'></div>");
+				$(scrollId+"-active").css({ 'position': 'absolute', 'top': o.topDistance+'px', 'width': '100%', 'border-top': '1px dotted '+o.activeOverlay, 'z-index': '99999' });
+			}
+
+			// Scroll function
+			$(window).on('scroll', function(){	
+				switch (o.animation) {
+					case "fade":
+						$( ($(window).scrollTop() > o.topDistance) ? $(scrollId).fadeIn(o.animationInSpeed) : $(scrollId).fadeOut(o.animationOutSpeed) );
+						break;
+					case "slide":
+						$( ($(window).scrollTop() > o.topDistance) ? $(scrollId).slideDown(o.animationInSpeed) : $(scrollId).slideUp(o.animationOutSpeed) );
+						break;
+					default:
+						$( ($(window).scrollTop() > o.topDistance) ? $(scrollId).show(0) : $(scrollId).hide(0) );
+				}
+			});
+
+		};
+		
+		$.scrollUp();
+
+
+		/*----------------------------------------------------*/
+		/*	Tabs
+		/*----------------------------------------------------*/
+
+		$('ul.tabs-1 li').on('click', function(){
+			var tab_id = $(this).attr('data-tab');
+
+			$('ul.tabs-1 li').removeClass('current');
+			$('.tab-content').removeClass('current');
+
+			$(this).addClass('current');
+			$("#"+tab_id).addClass('current');
 		});
-		return false;
+
+
+		/*----------------------------------------------------*/
+		/*	Masonry Grid
+		/*----------------------------------------------------*/
+
+		$('.grid-loaded').imagesLoaded(function () {
+
+	        // filter items on button click
+	        $('.masonry-filter').on('click', 'button', function () {
+	            var filterValue = $(this).attr('data-filter');
+	            $grid.isotope({
+	              filter: filterValue
+	            });
+	        });
+
+	        // change is-checked class on buttons
+	        $('.masonry-filter button').on('click', function () {
+	            $('.masonry-filter button').removeClass('is-checked');
+	            $(this).addClass('is-checked');
+	            var selector = $(this).attr('data-filter');
+	            $grid.isotope({
+	              filter: selector
+	            });
+	            return false;
+	        });
+
+	        // init Isotope
+	        var $grid = $('.masonry-wrap').isotope({
+	            itemSelector: '.masonry-image',
+	            percentPosition: true,
+	            transitionDuration: '0.7s',
+	            masonry: {
+	              // use outer width of grid-sizer for columnWidth
+	              columnWidth: '.masonry-image',
+	            }
+	        });
+	        
+	    });
+
+
+		/*----------------------------------------------------*/
+		/*	Accordion
+		/*----------------------------------------------------*/
+
+		$(".accordion > .accordion-item.is-active").children(".accordion-panel").slideDown();
+				
+		$(".accordion > .accordion-item").on('click', function() {
+			$(this).siblings(".accordion-item").removeClass("is-active").children(".accordion-panel").slideUp();
+			$(this).toggleClass("is-active").children(".accordion-panel").slideToggle("ease-out");
+		});
+
+
+		/*----------------------------------------------------*/
+		/*	Single Image Lightbox
+		/*----------------------------------------------------*/
+				
+		$('.image-link').magnificPopup({
+		  type: 'image'
+		});	
+
+
+		/*----------------------------------------------------*/
+		/*	Video Link #1 Lightbox
+		/*----------------------------------------------------*/
+		
+		// $('.video-popup1').magnificPopup({
+		//     type: 'iframe',		  	  
+		// 		iframe: {
+		// 			patterns: {
+		// 				youtube: {			   
+		// 					index: 'youtube.com',
+		// 					src: 'https://www.youtube.com/embed/SZEflIVnhH8'				
+		// 						}
+		// 					}
+		// 				}		  		  
+		// });
+		$('.video-popup1').magnificPopup({
+			type: 'iframe',            
+			iframe: {
+			  patterns: {
+				loom: {               
+					index: 'loom.com',
+					id: function(url) {        
+						// Capture the video ID from the URL
+						var m = url.match(/share\/([a-zA-Z0-9]+)/);
+						if (m && m[1]) {
+						return m[1];
+						}
+						return null;
+					},
+				  	src: 'https://www.loom.com/embed/bee57a4a6ac349c6a0a0a155bcaefd6b?sid=9ff1ddf4-050d-489c-bfcd-2eeebab5ede7' // Use the captured video ID in the embed URL
+				}
+			  }
+			}                 
+		  });
+		//   <iframe width="640" height="400" src="https://www.loom.com/embed/bee57a4a6ac349c6a0a0a155bcaefd6b?sid=9ff1ddf4-050d-489c-bfcd-2eeebab5ede7" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		  
+		
+
+
+		/*----------------------------------------------------*/
+		/*	Video Link #2 Lightbox
+		/*----------------------------------------------------*/
+		
+		$('.video-popup2').magnificPopup({
+		    type: 'iframe',		  	  
+				iframe: {
+					patterns: {
+						youtube: {			   
+							index: 'youtube.com',
+							src: 'https://www.youtube.com/embed/7e90gBu4pas'				
+								}
+							}
+						}		  		  
+		});
+
+
+		/*----------------------------------------------------*/
+		/*	Video Link #3 Lightbox
+		/*----------------------------------------------------*/
+		
+		$('.video-popup3').magnificPopup({
+		    type: 'iframe',		  	  
+				iframe: {
+					patterns: {
+						youtube: {			   
+							index: 'youtube.com',
+							src: 'https://www.youtube.com/embed/0gv7OC9L2s8'					
+								}
+							}
+						}		  		  
+		});
+
+
+		/*----------------------------------------------------*/
+		/*	Statistic Counter
+		/*----------------------------------------------------*/
+	
+		$('.count-element').each(function () {
+			$(this).appear(function() {
+				$(this).prop('Counter',0).animate({
+					Counter: $(this).text()
+				}, {
+					duration: 4000,
+					easing: 'swing',
+					step: function (now) {
+						$(this).text(Math.ceil(now));
+					}
+				});
+			},{accX: 0, accY: 0});
+		});
+
+
+		/*----------------------------------------------------*/
+		/*	Testimonials Rotator
+		/*----------------------------------------------------*/
+	
+		var owl = $('.reviews-1-wrapper');
+			owl.owlCarousel({
+				items: 3,
+				loop:true,
+				autoplay:true,
+				navBy: 1,
+				autoplayTimeout: 4500,
+				autoplayHoverPause: true,
+				smartSpeed: 1500,
+				responsive:{
+					0:{
+						items:1
+					},
+					767:{
+						items:1
+					},
+					768:{
+						items:2
+					},
+					991:{
+						items:3
+					},
+					1000:{
+						items:3
+					}
+				}
+		});
+
+
+		/*----------------------------------------------------*/
+		/*	Testimonials Rotator
+		/*----------------------------------------------------*/
+	
+		var owl = $('.reviews-4-wrapper');
+			owl.owlCarousel({
+				items: 2,
+				loop:true,
+				autoplay:true,
+				navBy: 1,
+				autoplayTimeout: 4500,
+				autoplayHoverPause: true,
+				smartSpeed: 1500,
+				responsive:{
+					0:{
+						items:1
+					},
+					767:{
+						items:1
+					},
+					768:{
+						items:2
+					},
+					991:{
+						items:2
+					},
+					1000:{
+						items:2
+					}
+				}
+		});
+
+
+		/*----------------------------------------------------*/
+		/*	Brands Logo Rotator
+		/*----------------------------------------------------*/
+	
+		var owl = $('.brands-carousel');
+			owl.owlCarousel({
+				items: 5,
+				loop:true,
+				autoplay:true,
+				navBy: 1,
+				nav:false,
+				autoplayTimeout: 4000,
+				autoplayHoverPause: false,
+				smartSpeed: 2000,
+				responsive:{
+					0:{
+						items:2
+					},
+					550:{
+						items:3
+					},
+					767:{
+						items:3
+					},
+					768:{
+						items:4
+					},
+					991:{
+						items:5
+					},				
+					1000:{
+						items:5
+					}
+				}
+		});
+
+
+		/*----------------------------------------------------*/
+		/*	Request Form Validation
+		/*----------------------------------------------------*/
+		
+		$(".request-form").validate({
+			rules:{ 
+					name:{
+						required: true,
+						minlength: 2,
+						maxlength: 16,
+					},
+					email:{
+						required: true,
+						email: true,
+						}
+					},
+					messages:{
+							name:{
+								required: "Please enter no less than (2) characters"
+							}, 
+							email:{
+								required: "We need your email address to contact you",
+								email: "Your email address must be in the format of name@domain.com"
+							}, 
+						}
+		});
+
+
+		/*----------------------------------------------------*/
+		/*	Contact Form Validation
+		/*----------------------------------------------------*/
+		
+		$(".contact-form").validate({
+			rules:{ 
+					name:{
+						required: true,
+						minlength: 1,
+						maxlength: 16,
+					},
+					email:{
+						required: true,
+						email: true,
+					},       		
+					message:{
+						required: true,
+						minlength: 2,
+						}
+					},
+					messages:{
+							name:{
+								required: "Please enter no less than (1) characters"
+							}, 
+							email:{
+								required: "We need your email address to contact you",
+								email: "Your email address must be in the format of name@domain.com"
+							}, 
+							message:{
+								required: "Please enter no less than (2) characters"
+							}, 
+						}
+		});
+
+
+		/*----------------------------------------------------*/
+		/*	Comment Form Validation
+		/*----------------------------------------------------*/
+		
+		$(".comment-form").validate({
+			rules:{ 
+					name:{
+						required: true,
+						minlength: 1,
+						maxlength: 16,
+					},
+					email:{
+						required: true,
+						email: true,
+					},       		
+					message:{
+						required: true,
+						minlength: 2,
+						}
+					},
+					messages:{
+							name:{
+								required: "Please enter no less than (1) characters"
+							}, 
+							email:{
+								required: "We need your email address to contact you",
+								email: "Your email address must be in the format of name@domain.com"
+							}, 
+							message:{
+								required: "Please enter no less than (2) characters"
+							}, 
+						}
+		});	
+
+
+		/*----------------------------------------------------*/
+	    /*  Sign In Form Validation
+	    /*----------------------------------------------------*/
+	    
+	    $(".sign-in-form").validate({
+	        rules:{ 
+	                password:{
+	                    required: true,
+	                    minlength: 2,
+	                    maxlength: 16,
+	                },
+	                email:{
+	                    required: true,
+	                    email: true,
+	                    }
+	                },
+	                messages:{
+	                        password:{
+	                            required: "Please enter no less than (2) characters"
+	                        }, 
+	                        email:{
+	                            required: "Please enter valid email address",
+	                            email: "Your email address must be in the format of name@domain.com"
+	                        }, 
+	                    }
+	    });
+
+
+	    /*----------------------------------------------------*/
+	    /*  Sign Up Form Validation
+	    /*----------------------------------------------------*/
+	    
+	    $(".sign-up-form").validate({
+	        rules:{ 
+	                name:{
+	                    required: true,
+	                    minlength: 2,
+	                    maxlength: 16,
+	                },
+	                password:{
+	                    required: true,
+	                    minlength: 2,
+	                    maxlength: 16,
+	                },
+	                email:{
+	                    required: true,
+	                    email: true,
+	                    }
+	                },
+	                messages:{
+	                        name:{
+	                            required: "Please enter no less than (2) characters"
+	                        },
+	                        password:{
+	                            required: "Please enter no less than (2) characters"
+	                        }, 
+	                        email:{
+	                            required: "Please enter valid email address",
+	                            email: "Your email address must be in the format of name@domain.com"
+	                        }, 
+	                    }
+	    });
+
+
+	    /*----------------------------------------------------*/
+		/*	Reset Form Validation
+		/*----------------------------------------------------*/
+		
+		$(".reset-password-form").validate({
+			rules:{ 
+					email:{
+						required: true,
+						email: true,
+					},
+					messages:{
+							email:{
+								required: "We need your email address to contact you",
+								email: "Your email address must be in the format of name@domain.com"
+							}, 
+						}
+			}
+		});
+
+
+		/*----------------------------------------------------*/
+		/*	Show Password
+		/*----------------------------------------------------*/
+
+	    var showPass = 0;
+	    $('.btn-show-pass').on('click', function(){
+	        if(showPass == 0) {
+	            $(this).next('input').attr('type','text');
+	            $(this).find('span.eye-pass').removeClass('flaticon-visible');
+	            $(this).find('span.eye-pass').addClass('flaticon-hidden');
+	            showPass = 1;
+	        }
+	        else {
+	            $(this).next('input').attr('type','password');
+	            $(this).find('span.eye-pass').addClass('flaticon-visible');
+	            $(this).find('span.eye-pass').removeClass('flaticon-hidden');
+	            showPass = 0;
+	        }
+	        
+	    });
+
+
+		/*----------------------------------------------------*/
+		/*	Newsletter Subscribe Form
+		/*----------------------------------------------------*/
+	
+		$('.newsletter-form').ajaxChimp({
+        language: 'cm',
+        url: 'https://dsathemes.us3.list-manage.com/subscribe/post?u=af1a6c0b23340d7b339c085b4&id=344a494a6e'
+            //http://xxx.xxx.list-manage.com/subscribe/post?u=xxx&id=xxx
+		});
+
+		$.ajaxChimp.translations.cm = {
+			'submit': 'Submitting...',
+			0: 'We have sent you a confirmation email',
+			1: 'Please enter your email address',
+			2: 'An email address must contain a single @',
+			3: 'The domain portion of the email address is invalid (the portion after the @: )',
+			4: 'The username portion of the email address is invalid (the portion before the @: )',
+			5: 'This email address looks fake or invalid. Please enter a real email address'
+		};	
+
+
 	});
-  // --------------------------------------------- //
-  // Contact Form End
-  // --------------------------------------------- //
-
-  // --------------------------------------------- //
-  // ParticlesJS Backgrounds Start
-  // --------------------------------------------- //
-  // Triangles BG - particlesJS
-  var bgndTriangles = $('#triangles-js');
-  if (bgndTriangles.length) {
-    particlesJS('triangles-js', {
-      "particles": {
-        "number": {
-          "value": 33,
-          "density": {
-            "enable": true,
-            "value_area": 1420.4657549380909
-          }
-        },
-        "color": {
-          "value": "#ffffff"
-        },
-        "shape": {
-          "type": "triangle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          },
-          "polygon": {
-            "nb_sides": 5
-          },
-          "image": {
-            "src": "img/github.svg",
-            "width": 100,
-            "height": 100
-          }
-        },
-        "opacity": {
-          "value": 0.06313181133058181,
-          "random": false,
-          "anim": {
-            "enable": false,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 11.83721462448409,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 40,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 4,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 400,
-            "line_linked": {
-              "opacity": 1
-            }
-          },
-          "bubble": {
-            "distance": 400,
-            "size": 40,
-            "duration": 2,
-            "opacity": 8,
-            "speed": 3
-          },
-          "repulse": {
-            "distance": 200,
-            "duration": 0.4
-          },
-          "push": {
-            "particles_nb": 4
-          },
-          "remove": {
-            "particles_nb": 2
-          }
-        }
-      },
-      "retina_detect": true
-    });
-  };
-
-  // Particles BG - particlesJS
-  var bgndParticles = $('#particles-js');
-  if (bgndParticles.length) {
-    particlesJS('particles-js', {
-      "particles": {
-        "number": {
-          "value": 80,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#ffffff"
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          },
-          "polygon": {
-            "nb_sides": 5
-          },
-          "image": {
-            "src": "img/github.svg",
-            "width": 100,
-            "height": 100
-          }
-        },
-        "opacity": {
-          "value": 0.5,
-          "random": false,
-          "anim": {
-            "enable": false,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 3,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 40,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 6,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 400,
-            "line_linked": {
-              "opacity": 1
-            }
-          },
-          "bubble": {
-            "distance": 400,
-            "size": 40,
-            "duration": 2,
-            "opacity": 8,
-            "speed": 3
-          },
-          "repulse": {
-            "distance": 200,
-            "duration": 0.4
-          },
-          "push": {
-            "particles_nb": 4
-          },
-          "remove": {
-            "particles_nb": 2
-          }
-        }
-      },
-      "retina_detect": true
-    });
-  };
-  // --------------------------------------------- //
-  // ParticlesJS Backgrounds End
-  // --------------------------------------------- //
-
-});
